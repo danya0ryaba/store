@@ -1,0 +1,37 @@
+.card {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 230px;
+    height: 100%;
+    max-height: 274px;
+    margin: 0 6px;
+    padding-bottom: 7px;
+    transition: all 0.3s;
+
+    &:hover {
+        filter: contrast(130%);
+    }
+
+    &__image {
+        margin-bottom: 20px;
+        transition: all 0.3s;
+
+        &:hover {
+            transform: scale(-1, 1);
+        }
+    }
+
+    &__title {
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 20px;
+        font-weight: 600;
+
+        &:hover .card__image {
+            transform: scale(-1, 1);
+        }
+    }
+}

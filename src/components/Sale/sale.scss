@@ -1,0 +1,72 @@
+.sale {
+    display: flex;
+    justify-content: space-between;
+    opacity: 1;
+    background: #191919;
+    margin-bottom: 36px;
+
+    &__item {
+        position: relative;
+        color: #6C3EB8;
+        width: 50%;
+        height: 570px;
+        text-align: center;
+
+        .forButtonCenter {
+            display: flex;
+            justify-content: center;
+        }
+
+        .sneakers {
+            position: absolute;
+            bottom: 74px;
+            left: -25px;
+        }
+
+        .console {
+            position: absolute;
+            bottom: -24px;
+            right: -25px;
+            z-index: 9;
+        }
+
+        .sale_title {
+            font-family: Montserrat;
+            font-size: 70px;
+            font-weight: 300;
+        }
+
+        .sale_subtitle {
+            font-family: Montserrat;
+            font-size: 150px;
+            font-weight: 300;
+            padding-bottom: 27px;
+        }
+
+        span {
+            color: #212123;
+            font-family: Montserrat;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 24px;
+            letter-spacing: 0em;
+            text-align: center;
+            padding-bottom: 24px;
+
+            b {
+                color: #6C3EB8;
+                font-family: Montserrat;
+                font-size: 20px;
+                font-weight: 700;
+            }
+        }
+
+        &-second {
+            background-image: url('./image/bg.png');
+            z-index: 1;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+    }
+}

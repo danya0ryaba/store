@@ -1,0 +1,13 @@
+.seeing {
+    margin: 25px 0;
+    background: #191919;
+    padding: 0 22px 28px 22px;
+    overflow: hidden;
+
+    &__product {
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}

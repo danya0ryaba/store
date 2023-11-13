@@ -1,0 +1,149 @@
+.card_bin {
+    background: #191919;
+    padding: 0 27px 0 35px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    max-height: 423px;
+    overflow-y: auto;
+
+    &__title {
+        display: flex;
+        flex-direction: column;
+        font-family: Montserrat;
+        font-size: 20px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 1);
+        padding: 25px 0 16px 0;
+    }
+
+    &_main {
+        flex: 1 0 auto;
+
+        .card_bin__item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            background: rgba(33, 33, 35, 1);
+            padding: 16px 12px;
+            border-radius: 8px;
+
+
+            &:last-child {
+                margin-bottom: 30px;
+            }
+
+            &_image {
+                margin-right: 16px;
+            }
+
+            &_desc {
+                margin-right: 150px;
+
+                .desc__title {
+                    font-family: Montserrat;
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: rgba(255, 255, 255, 1);
+                    margin-bottom: 3px;
+                }
+
+                .desc__category {
+                    font-family: Montserrat;
+                    font-size: 10px;
+                    font-weight: 500;
+                    line-height: 12px;
+                    color: rgba(184, 184, 184, 1);
+                }
+            }
+
+            &_price {
+                font-family: Montserrat;
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 24px;
+                color: rgba(255, 255, 255, 1);
+                margin-right: 95px;
+            }
+
+            &_quentity {
+                display: flex;
+                align-items: center;
+                margin-right: 147px;
+
+                .minus {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 25px;
+                    height: 25px;
+                    background: rgba(87, 96, 103, 1);
+                    border-radius: 6px;
+                    transition: all 0.3s;
+
+                    &:hover {
+                        background: rgba(108, 62, 184, 1);
+                    }
+                }
+
+                .count {
+                    font-family: Montserrat;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 17px;
+                    color: rgba(87, 96, 103, 1);
+                    padding: 0 16px;
+                }
+
+                .plus {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 25px;
+                    height: 25px;
+                    background: rgba(87, 96, 103, 1);
+                    border-radius: 6px;
+                    transition: all 0.3s;
+
+                    &:hover {
+                        background: rgba(108, 62, 184, 1);
+                    }
+                }
+            }
+
+            &_new_price {
+                font-family: Montserrat;
+                font-size: 22px;
+                font-weight: 700;
+                line-height: 27px;
+                color: rgba(108, 62, 184, 1);
+                margin-right: 44px;
+            }
+
+            .close {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__result {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 24px;
+
+        .totalPrice {
+            text-transform: uppercase;
+            font-family: Montserrat;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 24px;
+            color: rgba(184, 184, 184, 1);
+
+            b {
+                color: rgba(255, 255, 255, 1);
+            }
+
+        }
+    }
+}

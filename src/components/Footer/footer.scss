@@ -1,0 +1,64 @@
+.footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #576067;
+    padding: 24px;
+    background: #191919;
+
+    &__logo {
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+            filter: contrast(300%);
+        }
+    }
+
+    &__info {
+        font-family: Montserrat;
+        font-size: 12px;
+        font-weight: 500;
+
+
+        a {
+            font-family: Montserrat;
+            font-size: 12px;
+            font-weight: 600;
+            color: #6C3EB8;
+            transition: all 0.3s;
+
+            &:hover {
+                color: white;
+                font-size: 15px;
+            }
+        }
+
+
+    }
+
+    &__image {
+        display: flex;
+
+        a {
+            margin-right: 16px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            svg {
+                fill: #576067;
+                transition: all 0.3s;
+
+                &:hover {
+                    fill: #6C3EB8;
+                    width: 27px;
+                    height: 27px;
+                }
+            }
+
+        }
+    }
+}

@@ -1,0 +1,30 @@
+.button {
+    padding: 9px 20px;
+    border-radius: 6px;
+    color: #FFFFFF;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    background: #6C3EB8;
+    transition: all 0.4s;
+
+    &:hover {
+        background: #fff;
+        color: #6C3EB8;
+    }
+}
+
+.button__disabled {
+    padding: 9px 20px;
+    border-radius: 6px;
+    color: #B8B8B8;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    background: #576067;
+    transition: all 0.4s;
+}
