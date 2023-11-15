@@ -4,21 +4,29 @@ import { Title } from '../Title/Title'
 import { ProductCard } from '../ProductCard/ProductCard'
 import './trending.scss'
 import { Button } from '../Button/Button'
-
-const product = [1, 2, 3, 4, 5]
+import { useDispatch, useSelector } from 'react-redux'
+import { getProducts } from '../../feature/products/productsSlice'
 
 export const Trending = () => {
+    const { list } = useSelector(state => state.products)
+    const dispatch = useDispatch()
+
+    React.useEffect(() => {
+        dispatch(getProducts())
+    }, [dispatch])
+
+    const products = list.filter((_, index) => index < 5)
+
     return <div className='trending'>
         <Title>Trending</Title>
         <div className="trending__cards">
-
-            {product.map((pr, index) => (
-                <Link key={index} to="/product">
-                    <ProductCard />
+            {products.map(p => (
+                <Link key={p.id} to={`products/${p.id}`}>
+                    <ProductCard {...p} />
                 </Link>
             ))}
-
         </div>
+
         <div className="forCenterButton">
             <Button>See more</Button>
         </div>

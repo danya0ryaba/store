@@ -6,14 +6,11 @@ import { Trending } from '../Tranding/Trending';
 import { Common } from '../common/Common';
 import { Login } from '../Login/Login';
 import { Route, Routes } from 'react-router-dom';
-import { Card } from '../Card/Card';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProducts } from '../../feature/products/productsSlice';
 
 
 function App() {
-
-    // React.useEffect(() => {
-
-    // }, [])
 
     const [login, setLogin] = React.useState(false)
 
@@ -32,7 +29,6 @@ function App() {
             <Routes>
                 <Route path='/' element={<Common />} />
                 <Route path='product' element={<Trending />} />
-                {/* <Route path='/cards' element={<Card />} /> */}
             </Routes>
 
         </div>

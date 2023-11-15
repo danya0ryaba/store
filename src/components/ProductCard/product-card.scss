@@ -14,9 +14,12 @@
         filter: contrast(120%) drop-shadow(0 0 7px white);
     }
 
-    // &__image {
-
-    // }
+    &__image {
+        img {
+            width: 230px;
+            height: 180px;
+        }
+    }
 
     &__title {
         font-family: Montserrat;
