@@ -10,17 +10,18 @@
         right: 20px;
         bottom: -30px;
     }
+
+    &__sale {
+        font-family: Montserrat;
+        font-size: 119px;
+        font-weight: 900;
+        line-height: 145px;
+        color: #616E74;
+        opacity: 0.2;
+        margin-bottom: 10px;
+    }
 }
 
-.sale {
-    font-family: Montserrat;
-    font-size: 119px;
-    font-weight: 900;
-    line-height: 145px;
-    color: #616E74;
-    opacity: 0.2;
-    margin-bottom: 10px;
-}
 
 .year {
     font-family: Montserrat;
@@ -42,9 +43,6 @@
     margin-bottom: 24px;
     color: #F6F6F7;
 }
-
-
-
 
 // banner__product
 .banner__product {

@@ -1,16 +1,17 @@
 import React from 'react';
 import './app.scss'
 import { Header } from '../Header/Header'
-import { Main } from '../Main/Main'
-import { Trending } from '../Tranding/Trending';
-import { Common } from '../common/Common';
 import { Login } from '../Login/Login';
 import { Route, Routes } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { getProducts } from '../../feature/products/productsSlice';
+import { useDispatch } from 'react-redux';
+import { HomePage } from '../../pages/HomePage';
+import { ProductPage } from '../../pages/ProductPage';
+import { CardsPage } from '../../pages/CardsPage';
 
 
 function App() {
+
+    const dispatch = useDispatch()
 
     const [login, setLogin] = React.useState(false)
 
@@ -21,17 +22,14 @@ function App() {
         {login && <Login />}
 
         <div className='container'>
-
             <Header />
-
-            <Main />
-
             <Routes>
-                <Route path='/' element={<Common />} />
-                <Route path='product' element={<Trending />} />
+                <Route path='*' element={<HomePage />} />
+                <Route path='/products' element={<ProductPage />} />
+                <Route path='/cards' element={<CardsPage />} />
             </Routes>
-
         </div>
+
     </div>
 }
 

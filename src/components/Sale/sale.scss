@@ -1,11 +1,11 @@
 .sale {
     display: flex;
     justify-content: space-between;
-    opacity: 1;
     background: #191919;
     margin-bottom: 36px;
 
     &__item {
+        padding-top: 50px;
         position: relative;
         color: #6C3EB8;
         width: 50%;
@@ -34,13 +34,14 @@
             font-family: Montserrat;
             font-size: 70px;
             font-weight: 300;
+            margin-bottom: 10px;
         }
 
         .sale_subtitle {
             font-family: Montserrat;
-            font-size: 150px;
+            font-size: 180px;
             font-weight: 300;
-            padding-bottom: 27px;
+            padding: 10px 0 27px;
         }
 
         span {
