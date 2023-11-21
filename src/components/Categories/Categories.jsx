@@ -1,19 +1,11 @@
 import React from 'react'
 import './categories.scss'
-import { NavLink, Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { getCategories } from '../../feature/categories/categoriesSlice'
-import { getProducts } from '../../feature/products/productsSlice'
+import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export const Categories = () => {
 
-    const dispatch = useDispatch()
-
     const { list, isLoading } = useSelector(state => state.categories)
-
-    React.useEffect(() => {
-        dispatch(getCategories())
-    }, [])
 
     return <div className='categories'>
         <h2>CATEGORIES</h2>

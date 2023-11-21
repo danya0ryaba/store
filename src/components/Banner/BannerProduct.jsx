@@ -4,34 +4,46 @@ import { Button } from '../Button/Button'
 import bannerProduct from '../../image/banner-product/main-image.png'
 import sliderImage from '../../image/banner-product/slider.png'
 
-const slider = [1, 2, 3, 4]
+// const slider = [1, 2, 3, 4]
 const sizes = [4.5, 5, 5.5]
 
-export const BannerProduct = () => {
+export const BannerProduct = ({
+    id,
+    title,
+    price,
+    description,
+    images,
+    creationAt,
+    updatedAt,
+    category
+}) => {
+
     return <div className='banner'>
         <div className="banner__product">
             <div className="product__image">
-                <img src={bannerProduct} alt="product" />
+                <img src={images[0]} alt="product" />
             </div>
             <div className="product__slider">
-                {slider.map((item, index) => (
-                    <img key={index} src={sliderImage} alt="slider" className="slider" />
+                {images.map((adress, index) => (
+                    // задать размер картики в стилях
+                    <img key={index} src={adress} alt="slider" className="slider" />
                 ))}
             </div>
             <div className="product__info_card">
-                <h3 className="product__title_name">Bouncing sneaker Hermès</h3>
-                <h4 className="product__price">599$</h4>
+                <h3 className="product__title_name">{title}</h3>
+                <h4 className="product__price">{price}$</h4>
                 <div className="product__color">
                     <span>Color: <b>Blanc</b></span>
                 </div>
                 <div className="product__size">
+                    {/* размеры вроде только на обуви есть */}
                     <span>Sizes:  </span> {sizes.map((item, index) => (
                         <b key={index} className='item__size'>{item}</b>
                     ))}
                 </div>
-                <p className="product__description">Sneaker in air mesh and suede goatskin.
-                    Light sole with contrasting design for a versatile and modern look.
-                </p>
+
+                <p className="product__description">{description}</p>
+
                 <div className="buttons">
                     <div className="marginForButton">
                         <Button>Add to cart</Button>

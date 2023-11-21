@@ -7,11 +7,18 @@ import { useDispatch } from 'react-redux';
 import { HomePage } from '../../pages/HomePage';
 import { ProductPage } from '../../pages/ProductPage';
 import { CardsPage } from '../../pages/CardsPage';
+import { getProducts } from '../../feature/products/productsSlice'
+import { getCategories } from '../../feature/categories/categoriesSlice'
 
 
 function App() {
 
     const dispatch = useDispatch()
+
+    React.useEffect(() => {
+        dispatch(getProducts())
+        dispatch(getCategories())
+    }, [dispatch])
 
     const [login, setLogin] = React.useState(false)
 
@@ -23,11 +30,13 @@ function App() {
 
         <div className='container'>
             <Header />
+
             <Routes>
                 <Route path='*' element={<HomePage />} />
-                <Route path='/products' element={<ProductPage />} />
+                <Route path='/products/:productId' element={<ProductPage />} />
                 <Route path='/cards' element={<CardsPage />} />
             </Routes>
+
         </div>
 
     </div>

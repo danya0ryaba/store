@@ -4,17 +4,11 @@ import { Link } from 'react-router-dom'
 import { Title } from '../Title/Title'
 import { ProductCard } from '../ProductCard/ProductCard'
 import { Button } from '../Button/Button'
-import { useDispatch, useSelector } from 'react-redux'
-import { getProducts } from '../../feature/products/productsSlice'
+import { useSelector } from 'react-redux'
 
-export const Trending = ({ onClickProduct }) => {
+export const Trending = () => {
 
     const { list } = useSelector(state => state.products)
-    const dispatch = useDispatch()
-
-    React.useEffect(() => {
-        dispatch(getProducts())
-    }, [dispatch])
 
     const products = list.slice(10, 15)
 
@@ -24,8 +18,8 @@ export const Trending = ({ onClickProduct }) => {
             {products.map(p => (
                 <Link
                     key={p.id}
-                    to={`products/${p.id}`}
-                    onClick={() => onClickProduct(p.id)}>
+                    to={`/products/${p.id}`}
+                    onClick={() => { }}>
                     <ProductCard {...p} />
                 </Link>))}
         </div>

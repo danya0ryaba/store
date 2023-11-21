@@ -18,14 +18,7 @@ export const getProduct = createAsyncThunk(
 const productSlice = createSlice({
     name: 'product',
     initialState: {
-        list: {
-            name: '',
-            price: '',
-            color: '',
-            size: '',
-            description: '',
-            inCard: false,
-        },
+        list: {},
         isLoading: false,
         error: true
     },
@@ -47,7 +40,5 @@ const productSlice = createSlice({
             })
     }
 })
-
-// export const { filterByPrice } = productSlice.actions
 
 export default productSlice.reducer; 
