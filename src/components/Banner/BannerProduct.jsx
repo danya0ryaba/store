@@ -1,8 +1,9 @@
 import React from 'react'
 import './banner.scss'
 import { Button } from '../Button/Button'
-import bannerProduct from '../../image/banner-product/main-image.png'
-import sliderImage from '../../image/banner-product/slider.png'
+import { useDispatch, useSelector } from 'react-redux'
+// import bannerProduct from '../../image/banner-product/main-image.png'
+// import sliderImage from '../../image/banner-product/slider.png'
 
 // const slider = [1, 2, 3, 4]
 const sizes = [4.5, 5, 5.5]
@@ -15,19 +16,25 @@ export const BannerProduct = ({
     images,
     creationAt,
     updatedAt,
-    category
+    category,
+    addProductToCard
 }) => {
+
+    const imgValue = images && images.length > 0;
 
     return <div className='banner'>
         <div className="banner__product">
             <div className="product__image">
-                <img src={images[0]} alt="product" />
+                {imgValue && <img src={images[0]} alt="product" />}
             </div>
             <div className="product__slider">
-                {images.map((adress, index) => (
-                    // задать размер картики в стилях
-                    <img key={index} src={adress} alt="slider" className="slider" />
-                ))}
+
+                {imgValue &&
+                    images.map((adress, index) => (
+                        <img key={index} src={adress} alt="slider" className="slider" />
+                    ))
+                }
+
             </div>
             <div className="product__info_card">
                 <h3 className="product__title_name">{title}</h3>
@@ -36,7 +43,7 @@ export const BannerProduct = ({
                     <span>Color: <b>Blanc</b></span>
                 </div>
                 <div className="product__size">
-                    {/* размеры вроде только на обуви есть */}
+
                     <span>Sizes:  </span> {sizes.map((item, index) => (
                         <b key={index} className='item__size'>{item}</b>
                     ))}
@@ -45,7 +52,7 @@ export const BannerProduct = ({
                 <p className="product__description">{description}</p>
 
                 <div className="buttons">
-                    <div className="marginForButton">
+                    <div className="marginForButton" onClick={addProductToCard}>
                         <Button>Add to cart</Button>
                     </div>
                     <Button disabled={true}>Add to favorites</Button>

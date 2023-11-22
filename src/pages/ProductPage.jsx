@@ -5,22 +5,27 @@ import { Categories } from '../components/Categories/Categories'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProduct } from '../feature/product/productSlice'
+import { addProduct } from '../feature/cards/cardsSlice'
 
 export const ProductPage = () => {
 
     const { productId } = useParams()
 
     const dispatch = useDispatch()
-    const product = useSelector(state => state.product.list)
+    const { list } = useSelector(state => state.product)
+
 
     React.useEffect(() => {
         dispatch(getProduct(productId))
     }, [productId, dispatch])
 
+    const addProductToCard = () => {
+        dispatch(addProduct(list))
+    }
     return <>
         <div className='main'>
             <Categories />
-            <BannerProduct {...product} />
+            <BannerProduct {...list} addProductToCard={addProductToCard} />
         </div>
         <Trending />
     </>

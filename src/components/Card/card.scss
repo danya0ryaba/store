@@ -35,6 +35,12 @@
 
             &_image {
                 margin-right: 16px;
+
+                img {
+                    width: 100px;
+                    height: 60px;
+                    border-radius: 6px;
+                }
             }
 
             &_desc {
