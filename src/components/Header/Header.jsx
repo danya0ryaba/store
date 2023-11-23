@@ -6,8 +6,12 @@ import search from '../../image/header/search.svg'
 import like from '../../image/header/like.svg'
 import cards from '../../image/header/cards.svg'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export const Header = () => {
+
+    const { allProduct } = useSelector(state => state.cards)
+
     return <header className='header'>
         <Link to="/"> <img src={logo} alt="logo" className="logo" /></Link>
 
@@ -30,7 +34,7 @@ export const Header = () => {
 
             <Link to='cards'>
                 <img src={cards} alt="cards" />
-                <div className="count"><span>1</span></div>
+                <div className="count"><span>{allProduct}</span></div>
             </Link>
 
         </div>

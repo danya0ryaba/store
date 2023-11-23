@@ -3,11 +3,11 @@ import './app.scss'
 import { Header } from '../Header/Header'
 import { Login } from '../Login/Login';
 import { Route, Routes } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { HomePage } from '../../pages/HomePage';
 import { ProductPage } from '../../pages/ProductPage';
 import { CardsPage } from '../../pages/CardsPage';
-import { getProducts } from '../../feature/products/productsSlice'
+import { getProducts, filterByPrice } from '../../feature/products/productsSlice'
 import { getCategories } from '../../feature/categories/categoriesSlice'
 
 
@@ -18,6 +18,7 @@ function App() {
     React.useEffect(() => {
         dispatch(getProducts())
         dispatch(getCategories())
+        dispatch(filterByPrice(100))
     }, [dispatch])
 
     const [login, setLogin] = React.useState(false)

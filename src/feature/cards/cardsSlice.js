@@ -1,58 +1,43 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { BASE_URL } from "../../utils/constans";
-import axios from 'axios'
-
-// export const getCards = createAsyncThunk(
-//     "cards/getCards",
-//     async (id, { rejectWithValue }) => {
-//         try {
-//             const response = await axios.get(`${BASE_URL}/products/${id}`)
-//             return response.data
-//         } catch (error) {
-//             console.log(error);
-//             rejectWithValue(error)
-//         }
-//     }
-// )
 
 const cardsSlice = createSlice({
     name: 'cards',
     initialState: {
         list: [],
-        totalPrice: 0,
+        allProduct: 0,
         isLoading: false,
         error: true
     },
     reducers: {
         addProduct: (state, { payload }) => {
             if (state.list.every(item => item.id !== payload.id)) {
+                payload = { ...payload, qentity: 1 }
                 state.list.push(payload)
+
+                state.allProduct = state.allProduct + 1;
+
             }
         },
         removeProduct: (state, { payload }) => {
             let obj = state.list.find(item => item.id === payload)
             let index = state.list.indexOf(obj)
             state.list.splice(index, 1)
+
+            state.allProduct = state.allProduct - 1
+        },
+        plusProduct: (state, { payload }) => {
+            const product = state.list.find(item => item.id === payload)
+            product.qentity += 1;
+        },
+        minusProduct: (state, { payload }) => {
+            const product = state.list.find(item => item.id === payload)
+            if (product.qentity > 1) {
+                product.qentity -= 1
+            }
         }
     },
-    // extraReducers: (builder) => {
-    //     builder
-    //         .addCase(getProduct.fulfilled, (state, { payload }) => {
-    //             state.list.push(payload)
-    //             state.isLoading = true
-    //             state.error = false
-    //         })
-    //         .addCase(getProduct.pending, (state) => {
-    //             state.isLoading = false
-    //             state.error = false
-    //         })
-    //         .addCase(getProduct.rejected, (state, { payload }) => {
-    //             state.isLoading = false
-    //             state.error = true
-    //         })
-    // }
 })
 
-export const { addProduct, removeProduct } = cardsSlice.actions
+export const { addProduct, removeProduct, plusProduct, minusProduct } = cardsSlice.actions
 
 export default cardsSlice.reducer; 

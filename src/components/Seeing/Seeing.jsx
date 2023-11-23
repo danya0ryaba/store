@@ -8,16 +8,16 @@ export const Seeing = () => {
 
     // тут псевдокатегории т.к. какой-то пидор картинки испортил в api
     // беру картинки из products в state
-    let categories = useSelector(state => state.products.list).slice(35, 40)
-
+    const { list } = useSelector(state => state.categories)
+    const category = list.slice(0, 5)
 
     return <div className='seeing'>
         <Title>Worth seeing</Title>
         <div className="seeing__product">
-            {categories.map(item => (<SeeingProduct
+            {category.map(item => (<SeeingProduct
                 key={item.id}
-                image={item.images[0]}
-                name={item.category.name} />))}
+                image={item.image}
+                name={item.name} />))}
         </div>
     </div>
 }

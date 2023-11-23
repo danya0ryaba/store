@@ -24,7 +24,7 @@ const productsSlice = createSlice({
     },
     reducers: {
         filterByPrice: (state, { payload }) => {
-            state.filtered = state.list.filter(({ price }) => price < payload)
+            state.filtered = state.list.filter(item => item.price < payload)
         }
     },
     extraReducers: (builder) => {
@@ -37,7 +37,6 @@ const productsSlice = createSlice({
                 state.isLoading = false;
             })
             .addCase(getProducts.rejected, (state, { payload }) => {
-                // ВРОДЕ КАК ТЕПЕРЬ ОБРАБАТЫВАЕТСЯ ОШИБКА ЗАПРОСА ТУТ, А НЕ В createAsyncThunk
                 state.isLoading = false
             })
     }
