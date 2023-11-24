@@ -56,6 +56,33 @@
             left: 10px;
             top: 7px;
         }
+
+        .header__filtered_product {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-color: #fff;
+            // overflow: auto;
+            z-index: 30;
+
+
+
+            .filtered_product {
+                display: flex;
+                font-size: 12px;
+                padding: 10px;
+
+
+
+                &-image {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 6px;
+
+                }
+            }
+        }
+
     }
 
     &__icons {

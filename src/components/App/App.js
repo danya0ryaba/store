@@ -3,7 +3,7 @@ import './app.scss'
 import { Header } from '../Header/Header'
 import { Login } from '../Login/Login';
 import { Route, Routes } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { HomePage } from '../../pages/HomePage';
 import { ProductPage } from '../../pages/ProductPage';
 import { CardsPage } from '../../pages/CardsPage';
@@ -18,7 +18,7 @@ function App() {
     React.useEffect(() => {
         dispatch(getProducts())
         dispatch(getCategories())
-        dispatch(filterByPrice(100))
+        dispatch(filterByPrice(200))
     }, [dispatch])
 
     const [login, setLogin] = React.useState(false)

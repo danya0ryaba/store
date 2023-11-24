@@ -3,19 +3,14 @@ import { Trending } from '../Tranding/Trending'
 import { Seeing } from '../Seeing/Seeing'
 import { Sale } from '../Sale/Sale'
 import { Footer } from '../Footer/Footer'
-import { useDispatch, useSelector } from 'react-redux'
-import { filterByPrice } from '../../feature/products/productsSlice'
+import { useSelector } from 'react-redux'
 
 export const Common = () => {
-    // const dispatch = useDispatch()
-    // React.useEffect(() => {
-
-    // }, [dispatch])
 
     const { filtered, list } = useSelector(state => state.products)
 
-    const products = list.slice(1, 6)
-
+    const products = list.slice(0, 5)
+    console.log(filtered);
     const filterProduct = filtered.slice(0, 5)
 
     return <>

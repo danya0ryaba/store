@@ -2,10 +2,7 @@ import React from 'react'
 import './banner.scss'
 import { Button } from '../Button/Button'
 import { useDispatch, useSelector } from 'react-redux'
-// import bannerProduct from '../../image/banner-product/main-image.png'
-// import sliderImage from '../../image/banner-product/slider.png'
 
-// const slider = [1, 2, 3, 4]
 const sizes = [4.5, 5, 5.5]
 
 export const BannerProduct = ({
@@ -21,6 +18,7 @@ export const BannerProduct = ({
 }) => {
 
     const imgValue = images && images.length > 0;
+    const [currentSize, setCurrentSize] = React.useState()
 
     return <div className='banner'>
         <div className="banner__product">
@@ -42,10 +40,14 @@ export const BannerProduct = ({
                 <div className="product__color">
                     <span>Color: <b>Blanc</b></span>
                 </div>
-                <div className="product__size">
 
+                <div className="product__size">
                     <span>Sizes:  </span> {sizes.map((item, index) => (
-                        <b key={index} className='item__size'>{item}</b>
+                        <b key={index}
+                            onClick={() => setCurrentSize(item)}
+                            className={`item__size ${item === currentSize ? 'item__size--active' : ''}`}>
+                            {item}
+                        </b>
                     ))}
                 </div>
 

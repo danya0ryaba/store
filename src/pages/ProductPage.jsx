@@ -12,8 +12,12 @@ export const ProductPage = () => {
     const { productId } = useParams()
 
     const dispatch = useDispatch()
-    const { list } = useSelector(state => state.product)
-    const { filtered } = useSelector(state => state.products)
+
+    let { list } = useSelector(state => state.product)
+    // list = list.slice(0, 5)
+
+    let products = useSelector(state => state.products.list)
+    // products.slice(0, 5)
 
     React.useEffect(() => {
         dispatch(getProduct(productId))
@@ -27,7 +31,7 @@ export const ProductPage = () => {
             <Categories />
             <BannerProduct {...list} addProductToCard={addProductToCard} />
         </div>
-        <Trending products={filtered} title={'Related products'} />
+        <Trending products={products} title={'Related products'} />
     </>
 }
 
