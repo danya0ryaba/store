@@ -14,22 +14,33 @@ export const BannerProduct = ({
     creationAt,
     updatedAt,
     category,
-    addProductToCard
+    addProductToCard,
 }) => {
+    const [image, setImage] = React.useState(0)
+    const [currentSize, setCurrentSize] = React.useState()
+
+    const { activeCategory, list } = useSelector(state => state.categories)
+
+    const currentCategory = list.find(cat => cat.id === activeCategory)
+    const nameCategory = currentCategory ? currentCategory.name : ''
+
 
     const imgValue = images && images.length > 0;
-    const [currentSize, setCurrentSize] = React.useState()
 
     return <div className='banner'>
         <div className="banner__product">
             <div className="product__image">
-                {imgValue && <img src={images[0]} alt="product" />}
+                {imgValue && <img src={images[image]} alt="product" />}
             </div>
             <div className="product__slider">
 
                 {imgValue &&
                     images.map((adress, index) => (
-                        <img key={index} src={adress} alt="slider" className="slider" />
+                        <img onClick={() => setImage(index)}
+                            key={index}
+                            src={adress}
+                            alt="slider"
+                            className="slider" />
                     ))
                 }
 
@@ -40,25 +51,24 @@ export const BannerProduct = ({
                 <div className="product__color">
                     <span>Color: <b>Blanc</b></span>
                 </div>
-
-                <div className="product__size">
+                {nameCategory === 'Shoes' && <div className="product__size">
                     <span>Sizes:  </span> {sizes.map((item, index) => (
                         <b key={index}
                             onClick={() => setCurrentSize(item)}
                             className={`item__size ${item === currentSize ? 'item__size--active' : ''}`}>
                             {item}
                         </b>
-                    ))}
-                </div>
-
+                    ))}</div>}
                 <p className="product__description">{description}</p>
 
                 <div className="buttons">
                     <div className="marginForButton" onClick={addProductToCard}>
-                        <Button>Add to cart</Button>
+                        <Button >Add to cart</Button>
                     </div>
                     <Button disabled={true}>Add to favorites</Button>
                 </div>
+
+                {/* как-то прижать к низу блока */}
                 <div className="product__about">
                     <a href="/" className="link">19 people purchased</a>
                     <a href="/" className="link">Find in a store</a>

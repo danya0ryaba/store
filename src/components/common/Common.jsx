@@ -7,17 +7,14 @@ import { useSelector } from 'react-redux'
 
 export const Common = () => {
 
-    const { filtered, list } = useSelector(state => state.products)
-
-    const products = list.slice(0, 5)
-    console.log(filtered);
-    const filterProduct = filtered.slice(0, 5)
+    const { list, filtered } = useSelector(state => state.products)
+    // console.log(filtered);
 
     return <>
-        <Trending products={products} title={'Trending'} />
+        <Trending products={list} title={'Trending'} />
         <Seeing />
         <Sale />
-        <Trending products={filterProduct} title={'Less than 100$'} />
+        <Trending products={list} title={'Less than 300$'} />
         <Footer />
     </>
 }

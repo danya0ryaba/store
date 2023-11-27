@@ -18,7 +18,7 @@ function App() {
     React.useEffect(() => {
         dispatch(getProducts())
         dispatch(getCategories())
-        dispatch(filterByPrice(200))
+        dispatch(filterByPrice(100))
     }, [dispatch])
 
     const [login, setLogin] = React.useState(false)

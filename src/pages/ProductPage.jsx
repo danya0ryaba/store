@@ -8,24 +8,26 @@ import { getProduct } from '../feature/product/productSlice'
 import { addProduct } from '../feature/cards/cardsSlice'
 
 export const ProductPage = () => {
+    const dispatch = useDispatch()
 
     const { productId } = useParams()
 
-    const dispatch = useDispatch()
-
-    let { list } = useSelector(state => state.product)
-    // list = list.slice(0, 5)
-
+    const { list } = useSelector(state => state.product)
     let products = useSelector(state => state.products.list)
-    // products.slice(0, 5)
+
+    const { activeCategory } = useSelector(state => state.categories)
+
+    if (activeCategory) {
+        products = products.filter(p => p.category.id === activeCategory)
+    }
+
 
     React.useEffect(() => {
         dispatch(getProduct(productId))
     }, [productId, dispatch])
 
-    const addProductToCard = () => {
-        dispatch(addProduct(list))
-    }
+    const addProductToCard = () => dispatch(addProduct(list))
+
     return <>
         <div className='main'>
             <Categories />

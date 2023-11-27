@@ -5,8 +5,9 @@
     border-radius: 8px;
     transition: all 0.3s;
     width: 220px;
-    height: 300px;
-    margin-bottom: 20px;
+    height: 314px;
+    margin: 0 10px 20px;
+    padding-bottom: 14px;
 
     &:hover {
         filter: contrast(120%) drop-shadow(0 0 7px white);

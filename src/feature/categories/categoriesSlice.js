@@ -19,9 +19,14 @@ const categoriesSlice = createSlice({
     name: 'categories',
     initialState: {
         list: [],
+        activeCategory: 1,
         isLoading: false
     },
-    reducers: {},
+    reducers: {
+        activeIdCategory: (state, { payload }) => {
+            state.activeCategory = payload;
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(getCategories.fulfilled, (state, { payload }) => {
@@ -37,5 +42,7 @@ const categoriesSlice = createSlice({
             })
     }
 })
+
+export const { activeIdCategory } = categoriesSlice.actions
 
 export default categoriesSlice.reducer; 

@@ -6,16 +6,15 @@ import { SeeingProduct } from './SeeingProduct/SeeingProduct'
 
 export const Seeing = () => {
 
-    // тут псевдокатегории т.к. какой-то пидор картинки испортил в api
-    // беру картинки из products в state
-    const { list } = useSelector(state => state.categories)
-    const category = list.slice(0, 5)
+    let { list } = useSelector(state => state.categories)
+    list = list.slice(0, 5)
 
     return <div className='seeing'>
         <Title>Worth seeing</Title>
         <div className="seeing__product">
-            {category.map(item => (<SeeingProduct
+            {list.map(item => (<SeeingProduct
                 key={item.id}
+                id={item.id}
                 image={item.image}
                 name={item.name} />))}
         </div>
