@@ -4,6 +4,7 @@ import productsSlice from '../feature/products/productsSlice'
 import productSlice from '../feature/product/productSlice'
 import cardsSlice from '../feature/cards/cardsSlice'
 import searchSlice from '../feature/search/search'
+import userSlice from '../feature/user/userSlice'
 
 export const store = configureStore({
     reducer: {
@@ -11,7 +12,8 @@ export const store = configureStore({
         products: productsSlice,
         product: productSlice,
         cards: cardsSlice,
-        search: searchSlice
+        search: searchSlice,
+        user: userSlice
     },
     devTools: true
 })

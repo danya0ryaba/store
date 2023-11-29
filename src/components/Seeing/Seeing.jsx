@@ -7,12 +7,11 @@ import { SeeingProduct } from './SeeingProduct/SeeingProduct'
 export const Seeing = () => {
 
     let { list } = useSelector(state => state.categories)
-    list = list.slice(0, 5)
 
     return <div className='seeing'>
         <Title>Worth seeing</Title>
         <div className="seeing__product">
-            {list.map(item => (<SeeingProduct
+            {list.slice(0, 5).map(item => (<SeeingProduct
                 key={item.id}
                 id={item.id}
                 image={item.image}

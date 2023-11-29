@@ -14,7 +14,7 @@ export const ProductCard = (p) => {
         <h4 className='product__name'>{p.category.name}</h4>
         <div className="product__info">
             <div className="price">
-                <span className="price-new">{p.price}$</span>
+                <span className="price-new">{Math.floor(p.price * 0.2)}$</span>
                 <span className="price-old">79$</span>
             </div>
             <span className="sales">{bought} people purchased</span>

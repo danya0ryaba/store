@@ -15,7 +15,7 @@ export const Categories = () => {
         <h2>categories</h2>
         {!isLoading && <h4>Loading ...</h4>}
         <ul className='menu'>
-            {list.map(item => (
+            {list.slice(0, 5).map(item => (
                 <li key={item.id} className='menu__item' onClick={() => dispatch(activeIdCategory(item.id))}>
                     <NavLink
                         to={`/categories/${item.id}`}

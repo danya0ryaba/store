@@ -15,6 +15,19 @@ export const getProducts = createAsyncThunk(
     }
 )
 
+export const filteredProductsCategory = createAsyncThunk(
+    'products/filteredProductsCategory',
+    async (id, { rejectWithValue }) => {
+        try {
+            const response = await axios.get(`${BASE_URL}/products/?categoryId=${id}`)
+            return response.data
+        } catch (error) {
+            console.log(error);
+            return rejectWithValue(error)
+        }
+    }
+)
+
 const productsSlice = createSlice({
     name: 'products',
     initialState: {
@@ -23,13 +36,16 @@ const productsSlice = createSlice({
         isLoading: false
     },
     reducers: {
-        filterByPrice: (state, { payload }) => {
-            if (state.list.length !== 0) {
-                state.filtered = state.list.filter(item => item.price < payload)
-            } else {
-                state.filtered = state.list
-            }
-        }
+        // нажо бы написать функцию-action для фильтрации товара по цене 
+        // (можно через фильтрацию на сервере)
+
+        // filterByPrice: (state, { payload }) => {
+        //     if (state.list.length !== 0) {
+        //         state.filtered = state.list.filter(item => item.price < payload)
+        //     } else {
+        //         state.filtered = state.list
+        //     }
+        // }
     },
     extraReducers: (builder) => {
         builder
@@ -43,9 +59,21 @@ const productsSlice = createSlice({
             .addCase(getProducts.rejected, (state) => {
                 state.isLoading = false
             })
+
+
+            .addCase(filteredProductsCategory.fulfilled, (state, { payload }) => {
+                state.filtered = payload
+                state.isLoading = true;
+            })
+            .addCase(filteredProductsCategory.pending, (state) => {
+                state.isLoading = false;
+            })
+            .addCase(filteredProductsCategory.rejected, (state) => {
+                state.isLoading = false
+            })
     }
 })
 
-export const { filterByPrice } = productsSlice.actions
+// export const { filterByPrice } = productsSlice.actions
 
 export default productsSlice.reducer; 

@@ -13,14 +13,7 @@ export const ProductPage = () => {
     const { productId } = useParams()
 
     const { list } = useSelector(state => state.product)
-    let products = useSelector(state => state.products.list)
-
-    const { activeCategory } = useSelector(state => state.categories)
-
-    if (activeCategory) {
-        products = products.filter(p => p.category.id === activeCategory)
-    }
-
+    const { filtered } = useSelector(state => state.products)
 
     React.useEffect(() => {
         dispatch(getProduct(productId))
@@ -33,7 +26,7 @@ export const ProductPage = () => {
             <Categories />
             <BannerProduct {...list} addProductToCard={addProductToCard} />
         </div>
-        <Trending products={products} title={'Related products'} />
+        <Trending products={filtered} title={'Related products'} />
     </>
 }
 

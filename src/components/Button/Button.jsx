@@ -1,9 +1,9 @@
 import React from 'react'
 import './button.scss'
 
-export const Button = ({ children, disabled, width = 140 }) => {
+export const Button = ({ type = 'button', children, disabled = false, width = 140 }) => {
     if (!disabled) {
-        return <button
+        return <button type={type}
             // onClick={() => alert('click')}
             style={{ width: width }}
             disabled={disabled}
@@ -12,6 +12,7 @@ export const Button = ({ children, disabled, width = 140 }) => {
         </button>
     }
     return <button
+        type={type}
         disabled={disabled}
         className='button__disabled'>
         {children}
