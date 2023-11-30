@@ -12,21 +12,22 @@ import { modeWindow } from '../../feature/user/userSlice'
 export const Header = () => {
 
     const dispatch = useDispatch()
+
     const { allProduct } = useSelector(state => state.cards)
-    const { showForm, currentUser } = useSelector(state => state.user)
-    // console.log(currentUser);
-    const handleUser = () => {
-        dispatch(modeWindow(true))
-    }
+
+    const { currentUser } = useSelector(state => state.user)
+
+    const handleUser = () => dispatch(modeWindow(true))
 
     const [data, setDate] = React.useState({
         name: 'Guest',
         user: user
     })
 
-    if (Object.keys(currentUser) > 0) {
+    React.useEffect(() => {
+        if (Object.keys(currentUser).length === 0) return;
         setDate(currentUser)
-    }
+    }, [currentUser])
 
     return <header className='header'>
 
@@ -38,9 +39,10 @@ export const Header = () => {
 
             <div className="image">
 
-                <img src={data.user} alt="user" />
+                {Object.keys(currentUser).length > 0 ?
+                    <img src={data.avatar} alt="user" /> :
+                    <img src={data.user} alt="user" />}
 
-                {/* <img src={user} alt="user" /> */}
             </div>
 
             <span>{data.name}</span>

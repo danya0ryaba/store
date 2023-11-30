@@ -9,7 +9,7 @@ export const Login = () => {
 
     const dispatch = useDispatch()
 
-    const { showForm, loginOrLogUp, currentUser } = useSelector(state => state.user)
+    const { loginOrLogUp } = useSelector(state => state.user)
 
 
     const close = () => dispatch(modeWindow(false))
@@ -27,12 +27,7 @@ export const Login = () => {
             </div>
         </div>
 
-
         {loginOrLogUp === 'logup' ? <CreateAccaunt /> : <LoginAccaunt />}
-        {/* {loginOrLogUp === 'login' ? <LoginAccaunt /> : <CreateAccaunt />} */}
-
-
-
 
     </div>
 }

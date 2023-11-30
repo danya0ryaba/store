@@ -3,18 +3,15 @@ import '../login.scss'
 import { Button } from '../../Button/Button'
 import { Field, Form, Formik } from 'formik'
 import { modeLogin, authorizationUser, modeWindow } from '../../../feature/user/userSlice'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 export const LoginAccaunt = () => {
 
     const dispatch = useDispatch()
 
-    const handleModeLogin = () => dispatch(modeLogin('logup'))
-
     const handleLogin = (value) => {
-        console.log(value);
         dispatch(authorizationUser(value))
-        // dispatch(modeWindow(false))
+        dispatch(modeWindow(false))
     }
 
     return <Formik initialValues={{ email: '', password: '' }}
@@ -27,7 +24,7 @@ export const LoginAccaunt = () => {
                 <Field name='password' placeholder='password' type="password" className="password" validate={() => { }} />
             </div>
 
-            <div className="loginForButton" onClick={handleModeLogin}>
+            <div className="loginForButton">
                 <Button type='submit' width={272}>Log In</Button>
             </div>
 

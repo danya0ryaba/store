@@ -25,7 +25,6 @@
     }
 }
 
-
 .year {
     font-family: Montserrat;
     text-transform: uppercase;
@@ -45,6 +44,95 @@
     letter-spacing: 0em;
     margin-bottom: 24px;
     color: #F6F6F7;
+}
+
+@media (max-width:1302px) {
+    .banner {
+        padding: 0 15px;
+        height: 400px;
+
+        &__image {
+            right: 0px;
+        }
+
+        &__sale {
+            font-size: 90px;
+            margin-bottom: 5px;
+        }
+
+        .main_title {
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media (max-width:1060px) {
+    .banner {
+
+        &__image {
+            img {
+                width: 340px;
+                height: 250px;
+            }
+
+        }
+
+        &__sale {
+            font-size: 70px;
+        }
+
+        .main_title {
+            font-size: 30px;
+        }
+    }
+}
+
+@media (max-width:907px) {
+    .banner {
+        text-align: center;
+        height: 380px;
+
+        &__image {
+            display: none;
+
+        }
+
+        &__sale {
+            font-size: 50px;
+            margin-bottom: 0;
+        }
+
+        .year {
+            font-size: 30px;
+        }
+
+        .main_title {
+            margin-bottom: 35px;
+        }
+    }
+}
+
+@media (max-width:710px) {
+    .banner {
+
+        &__sale {
+            font-size: 45px;
+            margin-bottom: 0;
+        }
+
+        .year {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .main_title {
+            font-size: 23px;
+            letter-spacing: 0.1em;
+            line-height: 30px;
+            margin-bottom: 35px;
+        }
+    }
 }
 
 // banner__product

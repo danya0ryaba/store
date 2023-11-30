@@ -8,18 +8,12 @@ import { modeLogin,createUser,modeWindow } from '../../../feature/user/userSlice
 export const CreateAccaunt = () => {
 
     const dispatch=useDispatch()
-    
-    const handleModeLogin = () => {
-        dispatch(modeLogin('login'))
-    }
 
     const handleCreateUser=(value)=>{
-        console.log(value);
         dispatch(createUser(value))
         dispatch(modeWindow(false))
     }
     
-
     return <Formik initialValues={{ email: '', password: '', name: '', avatar: '' }}
         onSubmit={value => handleCreateUser(value)}>
 
@@ -30,7 +24,7 @@ export const CreateAccaunt = () => {
             <Field name='password' placeholder='password' type="password"  validate={() => { }} />
             <Field name='avatar' placeholder='avatar' type="text"  validate={() => { }} />
 
-            <div className="loginForButton" onClick={handleModeLogin}>
+            <div className="loginForButton">
                 <Button type={'submit'} width={272}>Create an account</Button>
             </div>
             
