@@ -1,10 +1,11 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const cardsSlice = createSlice({
     name: 'cards',
     initialState: {
         list: [],
         allProduct: 0,
+        totalPrice: 0,
         isLoading: false,
         error: true
     },
@@ -13,9 +14,7 @@ const cardsSlice = createSlice({
             if (state.list.every(item => item.id !== payload.id)) {
                 payload = { ...payload, qentity: 1 }
                 state.list.push(payload)
-
                 state.allProduct = state.allProduct + 1;
-
             }
         },
         removeProduct: (state, { payload }) => {

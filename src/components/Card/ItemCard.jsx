@@ -1,22 +1,13 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { plusProduct, minusProduct, removeProduct } from '../../feature/cards/cardsSlice'
 import './card.scss'
+import { useDispatch } from 'react-redux'
+import { plusProduct, minusProduct, removeProduct } from '../../feature/cards/cardsSlice'
 
-export const ItemCard = (props) => {
-
-
+export const ItemCard = React.memo((props) => {
 
     const dispatch = useDispatch()
 
-    // const { list } = useSelector(state => state.cards)
-    // let totalPrice = 0
-    // for (let i = 0; i < list.length; i++) {
-    //     totalPrice += list[i].price * list[i].qentity
-    // }
-    // console.log(totalPrice);
     const deleteProduct = (idProduct) => dispatch(removeProduct(idProduct))
-
 
     return <div className="card_bin__item">
 
@@ -29,7 +20,7 @@ export const ItemCard = (props) => {
             <div className="desc__category">{props.category.name}</div>
         </div>
 
-        <div className="card_bin__item_price">{props.price}$</div>
+        <div className="card_bin__item_price">{props.price + (Math.floor(props.price * 0.2))}$</div>
 
         <div className="card_bin__item_quentity">
 
@@ -60,4 +51,4 @@ export const ItemCard = (props) => {
 
     </div>
 
-}
+})

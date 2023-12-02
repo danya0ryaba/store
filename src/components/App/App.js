@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import './app.scss'
-import { Header } from '../Header/Header'
 import { Login } from '../Login/Login';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { HomePage } from '../../pages/HomePage';
-import { ProductPage } from '../../pages/ProductPage';
-import { CardsPage } from '../../pages/CardsPage';
 import { getProducts } from '../../feature/products/productsSlice'
 import { getCategories } from '../../feature/categories/categoriesSlice'
 
+const HomePage = React.lazy(() => import('../../pages/HomePage'))
+const ProductPage = React.lazy(() => import('../../pages/ProductPage'))
+const CardsPage = React.lazy(() => import('../../pages/CardsPage'))
+const Header = React.lazy(() => import('../Header/Header'))
 
 function App() {
 
@@ -26,20 +26,20 @@ function App() {
     let classBg = !showForm ? 'background' : 'background__opacity'
 
     return <div className={classBg}>
-
         {showForm && <Login />}
-
         <div className='container'>
+
             <Header />
 
-            <Routes>
-                <Route path='*' element={<HomePage />} />
-                <Route path='/products/:productId' element={<ProductPage />} />
-                <Route path='/cards' element={<CardsPage />} />
-            </Routes>
+            <Suspense fallback={<div>LOADING...</div>}>
+                <Routes>
+                    <Route path='*' element={<HomePage />} />
+                    <Route path='/products/:productId' element={<ProductPage />} />
+                    <Route path='/cards' element={<CardsPage />} />
+                </Routes>
+            </Suspense>
 
         </div>
-
     </div>
 }
 

@@ -5,12 +5,16 @@ import { Title } from '../Title/Title'
 import { ProductCard } from '../ProductCard/ProductCard'
 import { Button } from '../Button/Button'
 
-export const Trending = ({ products, title }) => {
-
+export const Trending = React.memo(({ products, title }) => {
 
     const [quentity, setQuentity] = React.useState(5)
 
+    const onClickScroll = React.useCallback(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return <div className='trending'>
+
         <Title>{title}</Title>
 
         <div className="trending__cards">
@@ -18,7 +22,7 @@ export const Trending = ({ products, title }) => {
                 <Link
                     key={p.id}
                     to={`/products/${p.id}`}
-                    onClick={() => window.scrollTo(0, 0)}>
+                    onClick={onClickScroll}>
                     <ProductCard {...p} />
                 </Link>))}
         </div>
@@ -29,4 +33,4 @@ export const Trending = ({ products, title }) => {
         </div>
 
     </div>
-}
+})

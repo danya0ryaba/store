@@ -5,9 +5,10 @@ import logo from '../../image/header/LOGO.svg'
 export const Footer = () => {
     return <footer className='footer'>
         <img className='footer__logo' src={logo} alt="logo" onClick={() => window.scroll(0, 0)} />
-        <span className='footer__info'>Developed by <a href=".">Ryabenkov</a> </span>
+        <span className='footer__info'>Developed by <a href="https://t.me/danya_ryaba">Ryabenkov</a> </span>
 
         <div className="footer__image" >
+
             <a href="/">
                 <svg width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
                     <path d="M17.7084 21.6147H7.29171C3.70837 21.6147 1.30212 19.2084 1.30212 15.6251V9.37508C1.30212 5.79175 3.70837 3.3855 7.29171 3.3855H17.7084C21.2917 3.3855 23.698 5.79175 23.698 9.37508V15.6251C23.698 19.2084 21.2917 21.6147 17.7084 21.6147ZM7.29171 4.948C4.60421 4.948 2.86462 6.68758 2.86462 9.37508V15.6251C2.86462 18.3126 4.60421 20.0522 7.29171 20.0522H17.7084C20.3959 20.0522 22.1355 18.3126 22.1355 15.6251V9.37508C22.1355 6.68758 20.3959 4.948 17.7084 4.948H7.29171Z" />
@@ -29,6 +30,7 @@ export const Footer = () => {
                 </svg>
 
             </a>
+
         </div>
 
     </footer>

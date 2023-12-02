@@ -16,3 +16,17 @@
         justify-content: center;
     }
 }
+
+@media (max-width:560px) {
+    .trending {
+
+        &__cards {
+            padding: 14px 0;
+            width: 100%;
+            overflow: auto;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+        }
+
+    }
+}

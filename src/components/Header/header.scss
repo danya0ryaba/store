@@ -154,7 +154,9 @@
 
 @media (max-width:605px) {
     .header {
+
         flex-direction: column;
+        padding: 10px 0 0 0;
 
         .logo {
             margin-bottom: 10px;
@@ -174,6 +176,19 @@
             margin-bottom: 10px;
         }
 
-        // &__icons {}
+        &__icons {
+            display: flex;
+            margin: 0;
+            padding: 10px 0;
+        }
+    }
+}
+
+@media (max-width:605px) {
+    .header {
+
+        &__search {
+            width: 300px;
+        }
     }
 }

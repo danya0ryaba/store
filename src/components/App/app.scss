@@ -34,3 +34,15 @@
         opacity: 0.1;
     }
 }
+
+@media (max-width:710px) {
+    .main {
+        display: block;
+    }
+}
+
+@media (max-width:545px) {
+    .main {
+        flex-direction: column;
+    }
+}

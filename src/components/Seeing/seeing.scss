@@ -2,12 +2,25 @@
     margin: 25px 0;
     background: #191919;
     padding: 0 22px 28px 22px;
-    overflow: hidden;
+    // overflow: hidden;
 
     &__product {
         overflow: hidden;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         flex-wrap: wrap;
+    }
+}
+
+@media (max-width:560px) {
+    .seeing {
+        overflow: auto;
+
+        &__product {
+            overflow: auto;
+            width: 100%;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+        }
     }
 }

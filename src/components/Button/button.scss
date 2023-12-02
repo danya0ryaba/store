@@ -28,3 +28,39 @@
     background: #576067;
     transition: all 0.4s;
 }
+
+@media (max-width:760px) {
+    .button {
+        font-size: 12px;
+    }
+
+    .button__disabled {
+        font-size: 12px;
+    }
+}
+
+@media (max-width:520px) {
+    .button {
+        font-size: 14px;
+        padding: 5px 14px;
+    }
+
+    .button__disabled {
+        font-size: 14px;
+        padding: 5px 14px;
+    }
+}
+
+@media (max-width:433px) {
+    .button {
+        // width: 60px;
+        font-size: 12px;
+        padding: 3px 5px;
+    }
+
+    .button__disabled {
+        // width: auto;
+        font-size: 12px;
+        padding: 3px 5px;
+    }
+}

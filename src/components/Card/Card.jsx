@@ -9,15 +9,19 @@ export const Card = () => {
     const { list } = useSelector(state => state.cards)
 
     let totalPrice = 0
+
     for (let i = 0; i < list.length; i++) {
         totalPrice += list[i].price * list[i].qentity
     }
 
     return <div className='card_bin'>
 
-        <h5 className="card_bin__title">Your cart</h5>
+        <h5 className="card_bin__title">
+            {list.length <= 0 ? <>Cart empty</> : <>Your cart</>}
+        </h5>
 
         <div className='card_bin_main'>
+
             {list.map(product => (
                 <span key={product.id}>
                     <ItemCard {...product} />

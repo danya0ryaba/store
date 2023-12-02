@@ -3,7 +3,7 @@ import { Common } from '../components/common/Common'
 import { Categories } from '../components/Categories/Categories'
 import { Banner } from '../components/Banner/Banner'
 
-export const HomePage = () => {
+const HomePage = () => {
     return <>
         <div className='main'>
             <Categories />
@@ -12,3 +12,5 @@ export const HomePage = () => {
         <Common />
     </>
 }
+
+export default HomePage

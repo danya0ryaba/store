@@ -6,6 +6,7 @@
     background: #191919;
     padding: 0 27px 0 35px;
     border-radius: 6px;
+    overflow: hidden;
 
     &__image {
         z-index: 1;
@@ -46,96 +47,6 @@
     color: #F6F6F7;
 }
 
-@media (max-width:1302px) {
-    .banner {
-        padding: 0 15px;
-        height: 400px;
-
-        &__image {
-            right: 0px;
-        }
-
-        &__sale {
-            font-size: 90px;
-            margin-bottom: 5px;
-        }
-
-        .main_title {
-            font-size: 34px;
-            margin-bottom: 20px;
-        }
-    }
-}
-
-@media (max-width:1060px) {
-    .banner {
-
-        &__image {
-            img {
-                width: 340px;
-                height: 250px;
-            }
-
-        }
-
-        &__sale {
-            font-size: 70px;
-        }
-
-        .main_title {
-            font-size: 30px;
-        }
-    }
-}
-
-@media (max-width:907px) {
-    .banner {
-        text-align: center;
-        height: 380px;
-
-        &__image {
-            display: none;
-
-        }
-
-        &__sale {
-            font-size: 50px;
-            margin-bottom: 0;
-        }
-
-        .year {
-            font-size: 30px;
-        }
-
-        .main_title {
-            margin-bottom: 35px;
-        }
-    }
-}
-
-@media (max-width:710px) {
-    .banner {
-
-        &__sale {
-            font-size: 45px;
-            margin-bottom: 0;
-        }
-
-        .year {
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-
-        .main_title {
-            font-size: 23px;
-            letter-spacing: 0.1em;
-            line-height: 30px;
-            margin-bottom: 35px;
-        }
-    }
-}
-
-// banner__product
 .banner__product {
     margin-top: 24px;
     display: flex;
@@ -235,10 +146,14 @@
             font-weight: 400;
             line-height: 15px;
             color: #B8B8B8;
+            padding: 0 5px;
             margin-bottom: 20px;
+            width: 400px;
+            overflow: hidden;
         }
 
         .buttons {
+            display: flex;
             margin-bottom: 103px;
 
             .marginForButton {
@@ -271,4 +186,227 @@
             }
         }
     }
+}
+
+@media (max-width:1302px) {
+    .banner {
+        padding: 0 15px;
+
+        &__image {
+            right: 0px;
+        }
+
+        &__sale {
+            font-size: 90px;
+            margin-bottom: 5px;
+        }
+
+        .main_title {
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media (max-width:1060px) {
+    .banner {
+
+        &__image {
+            img {
+                width: 340px;
+                height: 250px;
+            }
+
+        }
+
+        &__sale {
+            font-size: 70px;
+        }
+
+        .main_title {
+            font-size: 30px;
+        }
+    }
+
+    .banner__product {
+
+        .product__image {
+            margin-right: 10px;
+
+            img {
+                width: 160px;
+                height: 160px;
+            }
+        }
+
+        .product__info_card {
+
+
+            .product__title_name {
+                font-size: 16px;
+            }
+
+            .product__price {
+                font-size: 18px;
+                margin-bottom: 14px;
+            }
+
+            .product__color {
+                margin-bottom: 10px;
+            }
+
+            .product__description {
+                font-size: 9px;
+                margin-bottom: 10px;
+            }
+
+            .buttons {
+                display: block;
+                margin: 0;
+
+                .marginForButton {
+                    display: block;
+                    margin: 0;
+                    margin-bottom: 16px;
+                }
+
+            }
+        }
+
+    }
+}
+
+@media (max-width:907px) {
+    .banner {
+
+        height: auto;
+
+        &__image {
+            display: none;
+
+        }
+
+        &__sale {
+            font-size: 50px;
+            line-height: 55px;
+            margin-bottom: 0;
+        }
+
+        .year {
+            font-size: 30px;
+        }
+
+        .main_title {
+            margin-bottom: 35px;
+        }
+    }
+}
+
+@media (max-width:710px) {
+    .banner {
+        text-align: center;
+        padding-bottom: 10px;
+
+        &__sale {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .year {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .main_title {
+            font-size: 20px;
+            letter-spacing: 0.1em;
+            line-height: 30px;
+            margin-bottom: 45px;
+        }
+    }
+
+
+    .banner__product {
+
+        flex-direction: column;
+        margin-top: 15px;
+        padding: 10px 0;
+
+        .product__image {
+            margin: 0 0 8px;
+        }
+
+        .product__slider {
+            flex-direction: row;
+            justify-content: center;
+            margin: 0 auto 8px;
+
+            .slider {
+                margin: 0;
+                margin-right: 10px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        .product__info_card {
+            align-items: center;
+            text-align: center;
+
+            .product__title_name {
+                text-align: center;
+                font-size: 24px;
+                line-height: 35px;
+                padding: 10px 0 5px;
+            }
+
+            .product__price {
+                font-size: 28px;
+                margin-bottom: 18px;
+            }
+
+            .product__color {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            .product__description {
+                font-size: 14px;
+                max-width: 500px;
+                padding: 0 5px;
+                margin-bottom: 10px;
+            }
+
+            .buttons {
+                margin-bottom: 16px;
+
+                .marginForButton {
+                    display: block;
+                    margin: 0;
+                    margin-bottom: 16px;
+                }
+
+            }
+        }
+
+    }
+
+
+
+}
+
+@media (max-width:330px) {
+
+    .banner__product {
+
+        .product__slider {
+            justify-content: flex-start;
+            width: 100%;
+            overflow: auto;
+        }
+
+    }
+
 }

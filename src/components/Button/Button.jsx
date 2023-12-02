@@ -4,7 +4,6 @@ import './button.scss'
 export const Button = ({ type = 'button', children, disabled = false, width = 140 }) => {
     if (!disabled) {
         return <button type={type}
-            // onClick={() => alert('click')}
             style={{ width: width }}
             disabled={disabled}
             className='button'>

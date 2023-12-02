@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Search } from '../Search/Search'
 import { modeWindow } from '../../feature/user/userSlice'
 
-export const Header = () => {
+const Header = () => {
 
     const dispatch = useDispatch()
 
@@ -51,7 +51,10 @@ export const Header = () => {
         <Search />
 
         <div className="header__icons">
-            <img src={like} alt="like" />
+            <Link to={'/'}>
+                <img src={like} alt="like" />
+            </Link>
+
             <Link to='cards'>
                 <img src={cards} alt="cards" />
                 <div className="count">
@@ -61,3 +64,5 @@ export const Header = () => {
         </div>
     </header>
 }
+
+export default Header
